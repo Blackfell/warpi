@@ -42,7 +42,7 @@ sudo dd if=some_rpi_image_path.img of=/dev/definately_the_right_disk status=prog
 
 ### Post-Flash Pi Config
 
-If you mess with Pi stuff, this wont' be news to you, but if not, get your 
+If you mess with Pi stuff, this won't be news to you, but if not, get your 
 brew/coffee in while that's flashing, but when it's done STOP. Don't even 
 un-plug that SD card. 
 
