@@ -4,7 +4,7 @@
 
 I love my [pwnagotchi](https://pwnagotchi.ai), but there's something about
 GPS wardriving all the frequencies that is just a bit more fun. This script is
-to get me set up to go wardriving on my old [Raspberry Pi 2B](https://www.rasp
+to get me set up to go wardriving on my old [Raspberry Pi 2B](https://www.rasp\
 berrypi.com/products/raspberry-pi-2-model-b/) in a few minutes. Just like that. 
 
 ## Shopping list
