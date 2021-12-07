@@ -93,7 +93,7 @@ install the mighty Git, plus this repo:
 
 ```bash
 pi@192.168.1.42~$ sudo apt install git
-git clone https://github.com/blackfell/warpi
+pi@192.168.1.42~$ git clone https://github.com/blackfell/warpi
 ```
 
 Once that's done, you are free to tweak a few (very limited settings) in warpi.conf, 
