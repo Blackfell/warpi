@@ -97,7 +97,7 @@ pi@192.168.1.42~$ sudo apt install git
 
 Once that's done, you are free to tweak a few (very limited settings) in warpi.conf, 
 but you should be running a Pi, with one USB WiFi card and one USB GPS dongle, 
-so settings shoudl be the same for most people. 
+so settings can just be left as default and stuff will hopefully just work. 
 
 That means it's one line to get up and running for most people:
 
@@ -106,7 +106,7 @@ cd warpi && ./setup.sh
 ```
 
 When asked, always install tools like tshark, Kismet etc. with elevated (may
-be called SUID) privilege and agree to isntall everything OK? And you're done!
+be called SUID) privilege and just agree to install everything OK? 
 
 Now when you reboot your Pi, it will automagically run kismet as a service.
 
@@ -126,6 +126,40 @@ valid and you can conenct point-to-point with a laptop.
 
 # Other notes
 
+## Where logs at?
+
+Your Kismet logs will be on your Pi at /var/log/kismet. Enjoy.
+
+## Configuration Options
+
+Config options are very basic and in beta, tweak with caution.
+
+### Restart Interval
+
+This is the most janky setting, a Cron job will restart kismet every 10 mins
+by default, to ensure logs roll over in a semi-safe way, so on power loss, 
+only 10 mins of logs are lost worse case. 
+
+If you like long or short wardriving sessions, you may choose to increase or 
+decrease this interval accordingly, but the script will only work well for 
+intervalse between 1 and 60 mins currently because of cron syntax. 
+
+### Device names
+
+You can configure the name of the WiFi and GPS devices to be used in the Pi, 
+but unless yoyu're adding additional devices, there should be no need. 
+
 ## Audio
 
-Audio is enabled on Kismet server, so feel free to hook up some headphones or a speaker to get alerts for new networks, packets, gps locka nd loss and alerts. 
+Audio is enabled on Kismet server, so feel free to hook up some headphones 
+or a speaker to get alerts for new networks, packets, gps locka nd loss and 
+alerts. 
+
+# What's next?
+
+This config used legacy Kismet and some workarounds for log rotation. I'm also 
+not happy with the monitoring and shutdown situation, so I'd like to migrate to 
+'new' Kismet, maybe taking advantage of the Pi's lovely GPIO to help with 
+graceful notification and shutdown.
+
+Let me know, or just submit a PR if you want to. 
