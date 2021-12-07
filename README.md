@@ -85,9 +85,11 @@ Just to be safe :)
 
 ## Get configured fully
 
-This repo is meant to run on your Pi, so we don't have to worry about working
-over network, serial, keyboard etc. So we need to get internet connectivity 
-if you don't already have it and install one tool and clone this repo:
+This repo is meant to be run directly on your Pi, so we don't have to worry 
+about working over network, serial, keyboard etc. we just run stuff on the Pi.
+For this to work, you will need to get your Pi networked so it can get this 
+repo on disk. Just hook up network access if you don't already have it and 
+install the mighty Git:
 
 ```bash
 pi@192.168.1.42~$ sudo apt install git
