@@ -79,7 +79,7 @@ It's probably a good idea to:
 blackfell@secretbase~$ sudo ssh-copy-id -i ~/.ssh/id_rsa pi@192.168.1.42
 blackfell@secretbase~$ sudo ssh -i ~/.ssh/id_rsa pi@192.168.1.42
 pi@192.168.1.42~$ passwd
-`
+```
 
 Just to be safe :)
 
