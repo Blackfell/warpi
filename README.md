@@ -18,10 +18,11 @@ turnkey wardriving solution and the
 [Alfa AWUS036ACH](https://www.alfa.com.tw/products/awus036ach) is the best 
 looking WiFi card out there RN.
 
-My cheap side comes out when I buy GPS adapters and I usually go for [GT-U7 
-based adapters](https://hobbycomponents.com/wired-wireless/1069-gt-u7-gps-
-module-with-eeprom-and-active-antenna), in part because I have future ambitions 
-to update this project with some nice hardware/software updates in future. 
+When I buy GPS adapters and I usually go for 
+[GT-U7 based adapters](https://hobbycomponents.com/wired-wireless/1069-gt-u7-gps-module-with-eeprom-and-active-antenna)
+, in part because I have future ambitions to update this project with some 
+nice hardware/software updates in future, but also because they're cheap and 
+will take a different IPEX antenna if we want. 
 
 # Get Setup
 
