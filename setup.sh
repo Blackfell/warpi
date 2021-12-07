@@ -63,8 +63,13 @@ while true
 		pPrompt "OK to update/upgrade? [Y/n] "; read -r
           	if [[ $REPLY =~ ^[Yy]$ ]]
 		then
-			sudo apt update && sudo apt-full-upgrade -y
-	       		break
+			if sudo apt update && sudo apt-full-upgrade -y)
+			then
+				break
+			else
+				pErr "Update error. Exiting."
+				exit 1
+			fi
          	elif [[ $REPLY =~ ^[Nn]$ ]]
 		then
 	    		pErr "This script currently supports up-to-date systems only.\nExiting...\n"
@@ -79,7 +84,7 @@ then
 fi
 
 # Install required packages
-sudo apt install byobu gpsd gpsd-clients python3-gpsd kismet aircrack-ng git tshark
+sudo apt install byobu gpsd gpsd-clients python3-gps kismet aircrack-ng git tshark
 dkms alsaplayer libpcap0.8-dev libusb-1.0-0-dev libnetfilter-queue1 libnetfilter-queue-dev
 # Install Bettercap
 go get github.com/bettercap/bettercap
