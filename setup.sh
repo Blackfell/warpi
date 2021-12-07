@@ -80,7 +80,7 @@ fi
 
 # Install required packages
 sudo apt install byobu gpsd gpsd-clients python3-gpsd kismet aircrack-ng git tshark
-dkms alsaplayer libpcap0.8-dev libusb-1.0-0-dev libnetfilter-conntrack-dev
+dkms alsaplayer libpcap0.8-dev libusb-1.0-0-dev libnetfilter-queue1 libnetfilter-queue-dev
 # Install Bettercap
 go get github.com/bettercap/bettercap
 cd $GOPATH/src/github.com/bettercap/bettercap
