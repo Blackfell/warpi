@@ -95,7 +95,7 @@ install the mighty Git:
 pi@192.168.1.42~$ sudo apt install git
 ```
 
-Once that's done, You can tweak a few (very limited settings) in warpi.conf, 
+Once that's done, you are free to tweak a few (very limited settings) in warpi.conf, 
 but you should be running a Pi, with one USB WiFi card and one USB GPS dongle, 
 so settings shoudl be the same for most people. 
 
