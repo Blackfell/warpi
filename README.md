@@ -60,9 +60,9 @@ blackfell@secretbase~$ sudo touch /run/media/boot/ssh
 Hopefully you have a wired network and you can connect your Pi to some network
 you're working on and hey-presto DHCP does magic and you can talk. If not, you 
 can configure wpa_supplicant and a WiFi card, or just use HDMI and console right 
-in. If you're puttihng your Pi on the network, Linux has us covered to find it:
+in. If you're putting your Pi on the network, Linux has us covered to find it:
 
-``bash
+```bash
 blackfell@secretbase~$ sudo netdiscover -P
 _____________________________________________________________________________
    IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
