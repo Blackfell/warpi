@@ -89,7 +89,7 @@ This repo is meant to run on your Pi, so we don't have to worry about working
 over network, serial, keyboard etc. So we need to get internet connectivity 
 if you don't already have it and install one tool and clone this repo:
 
-``bash
+```bash
 pi@192.168.1.42~$ sudo apt install git
 ```
 
