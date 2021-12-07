@@ -89,17 +89,18 @@ This repo is meant to be run directly on your Pi, so we don't have to worry
 about working over network, serial, keyboard etc. we just run stuff on the Pi.
 For this to work, you will need to get your Pi networked so it can get this 
 repo on disk. Just hook up network access if you don't already have it and 
-install the mighty Git:
+install the mighty Git, plus this repo:
 
 ```bash
 pi@192.168.1.42~$ sudo apt install git
+git clone https://github.com/blackfell/warpi
 ```
 
 Once that's done, you are free to tweak a few (very limited settings) in warpi.conf, 
 but you should be running a Pi, with one USB WiFi card and one USB GPS dongle, 
 so settings can just be left as default and stuff will hopefully just work. 
 
-That means it's one line to get up and running for most people:
+That means it's just on line to get up and running for most people:
 
 ```bash
 cd warpi && ./setup.sh
