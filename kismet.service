@@ -1,0 +1,16 @@
+[Unit]
+Description=Run Kismet from boot
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kismet_server
+WorkingDirectory=/home/pi
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
