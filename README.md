@@ -4,8 +4,9 @@
 
 I love my [pwnagotchi](https://pwnagotchi.ai), but there's something about
 GPS wardriving all the frequencies that is just a bit more fun. This script is
-to get me set up to go wardriving on my old [Raspberry Pi 2B](https://www.rasp\
-berrypi.com/products/raspberry-pi-2-model-b/) in a few minutes. Just like that. 
+to get me set up to go wardriving on my old 
+[Raspberry Pi 2B](https://www.raspberrypi.com/products/raspberry-pi-2-model-b/)
+in a few minutes. Just like that. 
 
 ## Shopping list
 
@@ -13,8 +14,9 @@ This may work on your debain spin on any host, but has only been tested on a
 Pi 2B, so starting with one of those is probably a good idea.
 
 As I write this, [Kismet](https://www.kismetwireless.net) is still the best 
-turnkey wardriving solution and the [Alfa AWUS036ACH](https://www.alfa.com.
-tw/products/awus036ach) is the best looking WiFi card out there RN.
+turnkey wardriving solution and the 
+[Alfa AWUS036ACH](https://www.alfa.com.tw/products/awus036ach) is the best 
+looking WiFi card out there RN.
 
 My cheap side comes out when I buy GPS adapters and I usually go for [GT-U7 
 based adapters](https://hobbycomponents.com/wired-wireless/1069-gt-u7-gps-
@@ -26,9 +28,10 @@ to update this project with some nice hardware/software updates in future.
 ## Start at the start
 
 This is for a RPi 2B install, so get yourself one of them. Pop an SD card in 
-your PC and set the imager going. The new [Official Imager](https://www.
-raspberrypi.com/news/raspberry-pi-imager-imaging-utility/) is kind of nice. I
-just use the lite (no desktop) image, because that's all we need. 
+your PC and set the imager going. The new 
+[Official Imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/) 
+is kind of nice. I just use the lite (no desktop) image, because that's all 
+we need. 
 
 For fancy Linux folks, go old faithful:
 
