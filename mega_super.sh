@@ -70,9 +70,14 @@ function installKismet	{
 	cd kismet && git fetch --all --tags --prune
 	git checkout tags/2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
 	./configure
-	make -j$(nproc) && sudo make suidinstall
-	sudo usermod -aG kismet $USER
-	cd $SAVED_WD
+	if make -j$(nproc) && sudo make suidinstall
+	then
+	       	cd $SAVED_WD
+       		return -1	       
+	else
+		sudo usermod -aG kismet $USER
+		cd $SAVED_WD
+	fi
 }
 
 # Import config file
