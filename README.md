@@ -94,16 +94,17 @@ install the mighty Git, plus this repo:
 ```bash
 pi@192.168.1.42~$ sudo apt install git
 pi@192.168.1.42~$ git clone https://github.com/blackfell/warpi
+cd warpi && cp warpi.conf.example warpi.conf
 ```
 
 Once that's done, you are free to tweak a few (very limited settings) in warpi.conf, 
 but you should be running a Pi, with one USB WiFi card and one USB GPS dongle, 
 so settings can just be left as default and stuff will hopefully just work. 
 
-That means it's just on line to get up and running for most people:
+That means it's just one line to get the Pi 2B version running for most people:
 
 ```bash
-cd warpi && ./setup.sh
+./setup.sh
 ```
 
 Hit Y and go for coffee. 
