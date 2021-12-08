@@ -117,6 +117,7 @@ then
 else
 	pErr "Error configuring Kismet. Exiting."
 	exit 1
+fi
 
 # Running Bettercap - TODO in future??
 # docker run -it --privileged --net=host bettercap/bettercap -h
