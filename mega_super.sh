@@ -67,10 +67,10 @@ function installKismet	{
 	SAVED_WD=$PWD
 	cd /opt
 	sudo git clone https://github.com/kismetwireless/kismet 
-	cd kismet && git fetch --all --tags --prune
-	git checkout tags/2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
-	./configure
-	if make -j$(nproc) && sudo make suidinstall
+	cd kismet && sudo git fetch --all --tags --prune
+	sudo git checkout tags/kismet-2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
+	sudo ./configure
+	if sudo make -j$(nproc) && sudo make suidinstall
 	then
 	       	cd $SAVED_WD
        		return -1	       
