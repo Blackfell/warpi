@@ -99,7 +99,7 @@ fi
 #sudo make install
 
 # Install RTL8812AU Driver
-cd opt
+cd /opt
 sudo git clone -b v5.6.4.2 https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
 if sudo make dkms_install
