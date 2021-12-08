@@ -1,0 +1,6 @@
+# Written by WarPi 
+# We override existing Interface config ON PURPOSE - SorryNotSorry
+iface AP_CARD inet static
+     address AP_ADDR
+     netmask AP_NETMASK
+     network AP_NETWORK
