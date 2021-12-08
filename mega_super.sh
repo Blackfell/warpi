@@ -109,6 +109,9 @@ while true
           	fi
         done
 
+# Install wireshark OUI list only
+sudo wget "https://gitlab.com/wireshark/wireshark/-/raw/master/manuf" -O /etc/manuf
+
 # If SSH VAR is set, configure SSH key only no root pass
 if [ "$SSH_LOCKDOWN" = "yes" ] 
 then
