@@ -130,6 +130,7 @@ then
 else
 	pErr "Error setting up Kismet reset Crontab."
 	exit 1
+fi
 
 pWarn "You may lose WiFi connectivity. Byeeee....."
 
