@@ -6,25 +6,25 @@ CONFIG_FILE="./warpi.conf"
 # Print out error messages
 # $1 is the message
 function pErr {
-	printf "[%s!%s] - %s\n" $colors[RED] $colors[DEFAULT] $1
+	printf "[%s!%s] - %s\n" ${colors[RED]} ${colors[DEFAULT]} $1
 }
 function pSucc {
-	printf "[%s!%s] - %s\n" $colors[GREEN] $colors[DEFAULT] $1
+	printf "[%s!%s] - %s\n" ${colors[GREEN]} ${colors[DEFAULT]} $1
 }
 function pInf {
-	printf "[%s+%s] - %s\n" $colors[BLUE] $colors[DEFAULT] $1
+	printf "[%s+%s] - %s\n" ${colors[BLUE]} ${colors[DEFAULT]} $1
 }
 function pDebug {
-	printf "[%s+%s] - %s\n" $colors[RED] $colors[DEFAULT] $1
+	printf "[%s+%s] - %s\n" ${colors[RED]} ${colors[DEFAULT]} $1
 }
 function pWarn {
-	printf "[%s+%s] - %s\n" $colors[YELLOW] $colors[DEFAULT] $1
+	printf "[%s+%s] - %s\n" ${colors[YELLOW]} ${colors[DEFAULT]} $1
 }
 function pLow {
-	printf "[%s-%s] - %s\n" $colors[MAGENTA] $colors[DEFAULT] $1
+	printf "[%s-%s] - %s\n" ${colors[MAGENTA]} ${colors[DEFAULT]} $1
 }
 function pPrompt {
-	printf "[%s?%s] - %s" $colors[MAGENTA] $colors[DEFAULT] $1
+	printf "[%s?%s] - %s" ${colors[MAGENTA]} ${colors[DEFAULT]} $1
 }
 
 # Configure SSH on this Pi, key only if required $1 - Authorised key data
