@@ -6,25 +6,25 @@ CONFIG_FILE="./warpi.conf"
 # Print out error messages
 # $1 is the message
 function pErr {
-	printf "[%s!%s] - %s\n" ${colors[RED]} ${colors[DEFAULT]} $1
+	printf "[${colors[RED]}!${colors[DEFAULT]}] - $1\n"
 }
 function pSucc {
-	printf "[%s!%s] - %s\n" ${colors[GREEN]} ${colors[DEFAULT]} $1
+	printf "[${colors[GREEN]}!${colors[DEFAULT]}] - $1\n"
 }
 function pInf {
-	printf "[%s+%s] - %s\n" ${colors[BLUE]} ${colors[DEFAULT]} $1
+	printf "[${colors[BLUE]}+${colors[DEFAULT]}] - $1\n"
 }
 function pDebug {
-	printf "[%s+%s] - %s\n" ${colors[RED]} ${colors[DEFAULT]} $1
+	printf "[${colors[RED]}+${colors[DEFAULT]}] - $1\n"
 }
 function pWarn {
-	printf "[%s+%s] - %s\n" ${colors[YELLOW]} ${colors[DEFAULT]} $1
+	printf "[${colors[YELLOW]}+${colors[DEFAULT]}] - $1\n"
 }
 function pLow {
-	printf "[%s-%s] - %s\n" ${colors[MAGENTA]} ${colors[DEFAULT]} $1
+	printf "[${colors[MAGENTA]}-${colors[DEFAULT]}] - $1\n"
 }
 function pPrompt {
-	printf "[%s?%s] - %s" ${colors[MAGENTA]} ${colors[DEFAULT]} $1
+	printf "[${colors[MAGENTA]}\?${colors[DEFAULT]}] - $1"
 }
 
 # Configure SSH on this Pi, key only if required $1 - Authorised key data
@@ -60,7 +60,7 @@ fi
 # Run a full upgrade politely(ish)
 while true
 	do
-		pPrompt "OK to update/upgrade? [Y/n] "; read -r
+		pPrompt 'OK to update/upgrade? [Y/n] '; read -r
           	if [[ $REPLY =~ ^[Yy]$ ]]
 		then
 			if sudo apt update && sudo apt full-upgrade -y
