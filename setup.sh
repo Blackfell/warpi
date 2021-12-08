@@ -38,14 +38,14 @@ function configureSSH {
 # Configure Kismet and enable as a service - requires root
 function configureKismet {
 	pInf "Applying Kismet Configuration."
-	mkdir -p /var/log/kismet
-	chown pi:kismet /var/log/kismet
-	cp ./kismet.conf /etc/kismet/kismet.conf
-	sed -i "s/WIFI_CARD/$ALFA_CARD/g" /etc/kismet/kismet.conf
+	sudo mkdir -p /var/log/kismet
+	sudo chown pi:kismet /var/log/kismet
+	sudo cp ./kismet.conf /etc/kismet/kismet.conf
+	sudo sed -i "s/WIFI_CARD/$ALFA_CARD/g" /etc/kismet/kismet.conf
 	pInf "Enabling Kismet service..."	
-	cp ./kismet.service /etc/systemd/system
-	systemctl daemon-reload
-	systemctl enable kismet
+	sudo cp ./kismet.service /etc/systemd/system
+	sudo systemctl daemon-reload
+	sudo systemctl enable kismet
 }
 
 # Import config file
@@ -111,7 +111,7 @@ else
 fi
 
 # Apply Kismet configuration
-if sudo configureKismet
+if configureKismet
 then
 	pInf "Kismet Configured"
 else
