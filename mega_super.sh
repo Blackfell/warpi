@@ -64,11 +64,14 @@ function configureKismet {
 
 # Install Kismet from latest release direct from Kismet
 function installKismet	{
-	git clone https://github.com/kismetwireless/kismet && cd kismet
+	SAVED_WD=$PWD
+	cd /opt
+	sudo git clone https://github.com/kismetwireless/kismet && cd kismet
 	git checkout tags/2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
 	./configure
 	make -j$(nproc) && sudo make suidinstall
 	sudo usermod -aG kismet $USER
+	cd $SAVED_WD
 }
 
 # Import config file
