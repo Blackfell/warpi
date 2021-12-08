@@ -3,8 +3,8 @@ SSH_LOCKDOWN="no"
 RESTART_INTERVAL=10		# Restart Kismet every 10 mins - Keep between 1 and 60 until updates
 
 # WiFi Setup config - use your own WiFi to connect to Pi during install
-SETUP_WIFI_SSID="Your Own WiFi SSID Here"
-SETUP_WIFI_PASSWORD="Some_Secure_Password_Here"
+# SETUP_WIFI_SSID="Your Own WiFi SSID Here"
+# SETUP_WIFI_PASSWORD="Some_Secure_Password_Here"
 
 # WiFi AP mode Config - Use your Pi as an AP for status monitoring during driving
 # AP_SSID="WARPI"
