@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Globals
 CONFIG_FILE="./warpi.conf"
@@ -24,7 +24,7 @@ function pLow {
 	printf "[%s-%s] - %s\n" $colors[MAGENTA] $colors[DEFAULT] $1
 }
 function pPrompt {
-	printf "[%s?%s] - %s\n" $colors[MAGENTA] $colors[DEFAULT] $1
+	printf "[%s?%s] - %s" $colors[MAGENTA] $colors[DEFAULT] $1
 }
 
 # Configure SSH on this Pi, key only if required $1 - Authorised key data
