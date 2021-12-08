@@ -63,7 +63,7 @@ while true
 		pPrompt "OK to update/upgrade? [Y/n] "; read -r
           	if [[ $REPLY =~ ^[Yy]$ ]]
 		then
-			if sudo apt update && sudo apt-full-upgrade -y
+			if sudo apt update && sudo apt full-upgrade -y
 			then
 				break
 			else
