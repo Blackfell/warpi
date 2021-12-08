@@ -106,8 +106,11 @@ That means it's just on line to get up and running for most people:
 cd warpi && ./setup.sh
 ```
 
+Hit Y and go for coffee. 
+
 When asked, always install tools like tshark, Kismet etc. with elevated (may
-be called SUID) privilege and just agree to install everything OK? 
+be called SUID) privilege and if you're asked about adding a user to a group, 
+that user should be 'pi' without the quotes. Just agree everything OK? 
 
 Now when you reboot your Pi, it will automagically run kismet as a service.
 

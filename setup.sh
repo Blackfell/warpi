@@ -84,29 +84,50 @@ then
 fi
 
 # Install required packages
-sudo apt install byobu gpsd gpsd-clients python3-gps kismet aircrack-ng git tshark
-dkms alsaplayer libpcap0.8-dev libusb-1.0-0-dev libnetfilter-queue1 libnetfilter-queue-dev
+if sudo apt install byobu gpsd gpsd-clients python3-gps kismet aircrack-ng git tshark dkms alsaplayer libpcap0.8-dev libusb-1.0-0-dev libnetfilter-queue1 libnetfilter-queue-dev
+then
+	pInf "Installed required packages"
+else
+	pErr "Could not install dependencies"
+	exit 1
+fi
+
 # Install Bettercap
-go get github.com/bettercap/bettercap
-cd $GOPATH/src/github.com/bettercap/bettercap
-make build
-sudo make install
+#go get github.com/bettercap/bettercap
+#cd $GOPATH/src/github.com/bettercap/bettercap
+#make build
+#sudo make install
 
 # Install RTL8812AU Driver
 cd opt
 sudo git clone -b v5.6.4.2 https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
-sudo make dkms_install
+if sudo make dkms_install
+then 
+	pInf "Installed RTL8812AU Driver"
+else
+	pErr "Error installing RTL8812AU Driver"
+	exit 1
+fi
 
 # Apply Kismet configuration
-sudo configureKismet
+if sudo configureKismet
+then
+	pInf "Kismet Configured"
+else
+	pErr "Error configuring Kismet. Exiting."
+	exit 1
 
 # Running Bettercap - TODO in future??
 # docker run -it --privileged --net=host bettercap/bettercap -h
 
-echo -e "*/$RESTART_INTERVAL *\t* * *\troot\tsystemctl restart kismet" | sudo tee -a /etc/crontab
+if echo -e "*/$RESTART_INTERVAL *\t* * *\troot\tsystemctl restart kismet" | sudo tee -a /etc/crontab
+then
+	pSucc "Installation complete. Stopping wpa_supplicant so you can go driving."
+else
+	pErr "Error setting up Kismet reset Crontab."
+	exit 1
 
-pSucc "Installation complete. Stopping wpa_supplicant so you can go driving."
 pWarn "You may lose WiFi connectivity. Byeeee....."
 
 # Stop wpa_supplicant all the time, we don't want for wardriving
