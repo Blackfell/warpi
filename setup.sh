@@ -99,6 +99,7 @@ fi
 #sudo make install
 
 # Install RTL8812AU Driver
+SAVED_WD=$PWD
 cd /opt
 sudo git clone -b v5.6.4.2 https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
@@ -109,6 +110,7 @@ else
 	pErr "Error installing RTL8812AU Driver"
 	pWarn "Kismet will probably not run properly"	# No exit because you may be fine with this
 fi
+cd $SAVED_WD
 
 # Apply Kismet configuration
 if configureKismet
