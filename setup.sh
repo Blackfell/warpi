@@ -78,7 +78,7 @@ while true
         done
 
 # If SSH VAR is set, configure SSH key only no root pass
-if [ -z $SSH_LOCKDOWN ] 
+if [  "$SSH_LOCKDOWN" = "yes" ] 
 then
 	configureSSH
 fi
@@ -107,7 +107,7 @@ then
 	pInf "Installed RTL8812AU Driver"
 else
 	pErr "Error installing RTL8812AU Driver"
-	exit 1
+	pWarn "Kismet will probably not run properly"	# No exit because you may be fine with this
 fi
 
 # Apply Kismet configuration
