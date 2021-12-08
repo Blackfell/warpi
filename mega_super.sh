@@ -65,7 +65,7 @@ function configureKismet {
 # Install Kismet from latest release direct from Kismet
 function installKismet	{
 	git clone https://github.com/kismetwireless/kismet && cd kismet
-	checkout rags/2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
+	git checkout tags/2021-08-R1 -b master	# We're gonna build 2021-08-R1 for now
 	./configure
 	make -j$(nproc) && sudo make suidinstall
 	sudo usermod -aG kismet $USER
@@ -107,7 +107,7 @@ then
 fi
 
 # Install required packages
-if sudo apt install byobu gpsd gpsd-clients python3-gps aircrack-ng tshark dkms alsaplayer build-essential git libwebsockets-dev pkg-config zlib1g-dev libnl-3-dev libnl-genl-3-dev libcap-dev libpcap-dev libnm-dev libdw-dev libsqlite3-dev libprotobuf-dev libprotobuf-c-dev protobuf-compiler protobuf-c-compiler libsensors4-dev libusb-1.0-0-dev python3 python3-setuptools python3-protobuf python3-requests python3-numpy python3-serial python3-usb python3-dev python3-websockets librtlsdr0 libubertooth-dev libbtbb-dev -y
+if sudo apt install byobu gpsd gpsd-clients python3-gps aircrack-ng dkms alsaplayer build-essential git libwebsockets-dev pkg-config zlib1g-dev libnl-3-dev libnl-genl-3-dev libcap-dev libpcap-dev libnm-dev libdw-dev libsqlite3-dev libprotobuf-dev libprotobuf-c-dev protobuf-compiler protobuf-c-compiler libsensors4-dev libusb-1.0-0-dev python3 python3-setuptools python3-protobuf python3-requests python3-numpy python3-serial python3-usb python3-dev python3-websockets librtlsdr0 libubertooth-dev libbtbb-dev -y
 then
 	pInf "Installed required packages"
 else
@@ -116,19 +116,24 @@ else
 fi
 
 # Install RTL8812AU Driver
-SAVED_WD=$PWD
-cd /opt
-sudo git clone -b v5.6.4.2 https://github.com/aircrack-ng/rtl8812au.git
-cd rtl8812au
-if sudo make dkms_install
-then 
-	pInf "Installed RTL8812AU Driver"
+if [ -n $(sudo dkms status | grep 8812au | grep -q installed) ]
+then
+	pInf "8812au Kernel module already seems to be installed. Continuing..."
 else
-	pErr "Error installing RTL8812AU Driver"
-	pWarn "Kismet will probably not run properly"	# No exit because you may be fine with this
+	SAVED_WD=$PWD
+	cd /opt
+	sudo git clone -b v5.6.4.2 https://github.com/aircrack-ng/rtl8812au.git
+	cd rtl8812au
+	if sudo make dkms_install
+	then 
+		pInf "Installed RTL8812AU Driver"
+	else
+		pErr "Error installing RTL8812AU Driver"
+		pWarn "Kismet will probably not run properly"	# No exit because you may be fine with this
+	fi
+	# Go back where we were
+	cd $SAVED_WD
 fi
-# Go back where we were
-cd $SAVED_WD
 
 # Install new Kismet
 if installKismet
