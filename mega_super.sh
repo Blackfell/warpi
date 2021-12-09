@@ -26,7 +26,7 @@ function configureAP {
 	sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 	echo -e "interface=$AP_CARD\n\tdhcp-range=$AP_DHCP_RANGE,24h" | sudo tee -a /etc/dnsmasq.conf
 	# Hostapd config, based on local file
-	$HAPD_CONF="/etc/hostapd/hostapd.conf"
+	HAPD_CONF="/etc/hostapd/hostapd.conf"
 	sudo cp ./templates/hostapd.conf $HAPD_CONF
 	sudo sed -i "s/AP_SSID/$AP_SSID/g" $HAPD_CONF
 	sudo sed -i "s/AP_PASSWORD/$AP_PASSWORD/g" $HAPD_CONF
