@@ -22,19 +22,19 @@ function configureAP {
 	sudo systemctl stop hostapd
 	sudo systemctl stop dnsmasq
 	# Configure dhcpd & dnsmasq
-	echo -e "denyinterfaces $AP_CARD\n" | tee -a /etc/dhcpd.conf
+	echo -e "denyinterfaces $AP_CARD\n" | sudo tee -a /etc/dhcpd.conf
 	sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
-	echo -e "interface=$AP_CARD\n\tdhcp-range=$AP_DHCP_RANGE,24h" | tee -a /etc/dnsmasq.conf
+	echo -e "interface=$AP_CARD\n\tdhcp-range=$AP_DHCP_RANGE,24h" | sudo tee -a /etc/dnsmasq.conf
 	# Hostapd config, based on local file
 	$HAPD_CONF="/etc/hostapd/hostapd.conf"
-	cp ./hostapd.conf $HAPD_CONF
-	sed -i "s/AP_SSID/$AP_SSID/g" $HAPD_CONF
-	sed -i "s/AP_PASSWORD/$AP_PASSWORD/g" $HAPD_CONF
-	sed -i "s/AP_CARD/$AP_CARD/g" $HAPD_CONF
-	sed -i "s/^#\s{0,4}DAEMON_CONF=/DAEMON_CONF=$HAPD_CONF/g" /etc/hostapd/hostapd
+	sudo cp ./templates/hostapd.conf $HAPD_CONF
+	sudo sed -i "s/AP_SSID/$AP_SSID/g" $HAPD_CONF
+	sudo sed -i "s/AP_PASSWORD/$AP_PASSWORD/g" $HAPD_CONF
+	sudo sed -i "s/AP_CARD/$AP_CARD/g" $HAPD_CONF
+	sudo sed -i "s/^#\s{0,4}DAEMON_CONF=/DAEMON_CONF=$HAPD_CONF/g" /etc/hostapd/hostapd
 	# Setup AP IP and restart services - Overwrite intentional BTW
 	pInf "Configured AP:\nSSID:\t$AP_SSID\nCIDR:\r$AP_CIDR\nPassword in config file."
-        sudo cp -f ./interfaces /etc/network/interfaces	
+        sudo cp -f ./templates/interfaces /etc/network/interfaces	
 	sudo sed -i "s/AP_CARD/$AP_CARD/g" /etc/network/interfaces
 	sudo sed -i "s/AP_ADDR/$AP_ADDR/g" /etc/network/interfaces
 	sudo sed -i "s/AP_NETMASK/$AP_NETMASK/g" /etc/network/interfaces
