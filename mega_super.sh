@@ -85,7 +85,7 @@ function installKismetPackage	{
 	echo 'deb https://www.kismetwireless.net/repos/apt/release/bullseye bullseye main' | sudo tee /etc/apt/sources.list.d/kismet.list
 	sudo apt update
 	sudo apt install kismet
-	sudo usermod -aG kisment $USER
+	sudo usermod -aG kismet $USER
 }
 
 # Import config file
