@@ -80,6 +80,14 @@ function installKismet	{
 	fi
 }
 
+function installKismetPackage	{
+	wget -O - https://www.kismetwireless.net/repos/kismet-release.gpg.key | sudo apt-key add -
+	echo 'deb https://www.kismetwireless.net/repos/apt/release/bullseye bullseye main' | sudo tee /etc/apt/sources.list.d/kismet.list
+	sudo apt update
+	sudo apt install kismet
+	sudo usermod -aG kisment $USER
+}
+
 # Import config file
 if [ -f $CONFIG_FILE ]
 then
@@ -148,7 +156,7 @@ else
 fi
 
 # Install new Kismet
-if installKismet
+if installKismetPackage #installKismet
 then 
 	pInf "Kismet installed successfully."
 else
